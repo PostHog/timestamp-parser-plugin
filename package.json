@@ -1,7 +1,7 @@
 {
     "name": "timestamp-parser-plugin",
     "version": "0.0.1",
-    "description": "Parse your event timestamps into usable date properties.",
+    "description": "Parse your event timestamps into useful date properties.",
     "main": "index.js",
     "repository": {
         "type": "git",
