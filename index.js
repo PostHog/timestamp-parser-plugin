@@ -1,6 +1,6 @@
 function processEvent(event) {
     if (event.properties && event.properties['$time']) {
-        const timestamp = event.properties['$time']
+        const timestamp = event.properties['$time'] * 1000
         event.properties['day_of_the_week'] = new Date(timestamp).toLocaleDateString('en-GB', { weekday: 'long' })
         const date = new Date(timestamp).toLocaleDateString('en-GB').split('/')
         event.properties['day'] = date[0]
@@ -9,4 +9,8 @@ function processEvent(event) {
     }
 
     return event
+}
+
+module.exports = {
+    processEvent
 }
