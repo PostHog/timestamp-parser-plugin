@@ -1,11 +1,12 @@
 function processEvent(event) {
     if (event.properties && event.properties['$time']) {
-        const timestamp = event.properties['$time'] * 1000
-        event.properties['day_of_the_week'] = new Date(timestamp).toLocaleDateString('en-GB', { weekday: 'long' })
-        const date = new Date(timestamp).toLocaleDateString('en-GB').split('/')
-        event.properties['day'] = Number(date[0])
-        event.properties['month'] = Number(date[1])
-        event.properties['year'] = Number(date[2])
+        const timestamp = isNaN(event.properties['$time']) ? event.properties['$time']: event.properties['$time'] * 1000
+        let date = new Date(timestamp)
+        event.properties['day_of_the_week'] = date.toLocaleDateString('en-GB', { weekday: 'long' })
+        date = date.toLocaleDateString('en-GB').split('/')
+        event.properties['day'] = date[0]
+        event.properties['month'] = date[1]
+        event.properties['year'] = date[2]
     }
 
     return event
