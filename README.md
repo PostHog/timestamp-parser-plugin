@@ -6,6 +6,9 @@ Parse event timestamps into:
 -   Day of the month
 -   Month
 -   Year
+-   Hour
+-   Minute
+
 
 So you can explore questions like:
 
