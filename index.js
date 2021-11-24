@@ -1,7 +1,7 @@
 function processEvent(event) {
-    if (event.properties && event.properties['$time']) {
-        const eventDate = new Date(timestamp)
+    if (event.properties && event.properties['$time'] && !isNaN(event.properties['$time'])) {
         const timestamp = event.properties['$time'] * 1000
+        const eventDate = new Date(timestamp)
         event.properties['day_of_the_week'] = eventDate.toLocaleDateString('en-GB', { weekday: 'long' })
         const date = eventDate.toLocaleDateString('en-GB').split('/')
         event.properties['day'] = Number(date[0])
