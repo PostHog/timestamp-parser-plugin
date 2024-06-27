@@ -1,5 +1,5 @@
 function processEvent(event) {
-    if (event && event['timestamp'] && !isNaN(event['timestamp'])) {
+    if (event.properties && event['timestamp'] && !isNaN(event['timestamp'])) {
         const eventDate = new Date(event['timestamp'])
         event.properties['day_of_the_week'] = eventDate.toLocaleDateString('en-GB', { weekday: 'long' })
         const date = eventDate.toLocaleDateString('en-GB').split('/')
